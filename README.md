@@ -1,4 +1,4 @@
-# goit-markup-hw-03
-ДЗ - 3
+# goit-markup-hw-04
+ДЗ - 4
 ТЗ к задинию:
-https://github.com/goitacademy/html-css-homework/blob/master/03-flexbox.md
+https://github.com/goitacademy/html-css-homework/tree/master/4-decoration

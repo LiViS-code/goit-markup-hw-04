@@ -382,23 +382,6 @@ body {
   display: block;
 }
 
-/* задаем каждой особенности свою декорацию */
-/* .features-list > .item:nth-child(1)::before {
-  background-image: url("../images/antenna.svg");
-}
-
-.features-list > .item:nth-child(2)::before {
-  background-image: url("../images/clock.svg");
-}
-
-.features-list > .item:nth-child(3)::before {
-  background-image: url("../images/diagram.svg");
-}
-
-.features-list > .item:nth-child(4)::before {
-  background-image: url("../images/astronaut.svg");
-} */
-
 /* заголовки в списках особенностей */
 .features-list .title {
   margin-bottom: 10px;

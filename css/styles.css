@@ -512,11 +512,6 @@ body {
   border: 1px solid var(--accent-color);
 }
 
-/* portfolio.html */
-.portfolio-box {
-  padding: 94px 0;
-}
-
 /* список кнопок-фильтров */
 .filters-list {
   margin-bottom: 50px;

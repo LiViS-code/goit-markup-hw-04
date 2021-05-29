@@ -27,10 +27,6 @@
 
   /* интервал между элементами в сетках */
   --gap: 30px;
-  --features-card-gap: var(--gap);
-  --doing-card-gap: var(--gap);
-  --team-card-gap: var(--gap);
-  --project-card-gap: var(--gap);
 
   --card-team-shawow: 0px 1px 3px rgba(0, 0, 0, 0.12),
     0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
@@ -111,54 +107,53 @@ body {
   list-style-type: none;
 }
 
+/* компенсация интервалов в сетках списков */
+.card-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: calc(-1 * var(--gap));
+  margin-bottom: calc(-1 * var(--gap));
+}
+
+/* интервал между элементами в сетке */
+.card-list > .item {
+  margin-right: var(--gap);
+  margin-bottom: var(--gap);
+}
+
+/* убрал нижний зазор во всех сприсках с картинками */
+.card-thumb > img {
+  min-width: 100%;
+  display: block;
+}
+
 /* ссылки на социальные сети */
 /* ссылка на социальную сеть сотрудника */
 .social-link {
   width: 44px;
   height: 44px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  padding: 12px;
+  display: flex;
+  align-items: baseline;
   border-radius: 50%;
-}
-
-/* логотип */
-.logo-link {
-  margin-right: 93px;
-  padding-top: 24px;
-  padding-bottom: 25px;
-  font-family: "Raleway", sans-serif;
-  font-weight: var(--font-weight-bold);
-  font-size: 26px;
-  text-decoration: none;
-  line-height: 1.174;
-  --logo-dark-color: #000000;
-  --logo-light-color: #ffffff;
-  --logo-accent-color: var(--accent-color);
-  color: var(--logo-dark-color);
-}
-
-/* стилизация первого слова в логотипе */
-.logo-link > span {
-  color: var(--logo-accent-color);
 }
 
 /* общий контейнер для всех разделов и секций */
 .container {
-  max-width: var(--max-width-container);
-  margin: 0 auto;
   padding: 0 15px;
 }
 
 /* секции */
 .section {
   max-width: var(--max-width-site);
-  padding: 94px 0;
+  padding: 94px 200px;
   margin: 0 auto;
 }
 
 /* header */
 .header-page {
+  padding-top: 0;
+  padding-bottom: 0;
   border-bottom: 1px solid #ececec;
 }
 
@@ -172,17 +167,37 @@ body {
   display: flex;
 }
 
+/* логотип */
+.logo-link {
+  margin-right: 93px;
+  padding-top: 24px;
+  padding-bottom: 25px;
+  font-family: "Raleway", sans-serif;
+  font-weight: var(--font-weight-bold);
+  font-size: 26px;
+  line-height: 1.174;
+  --logo-dark-color: #000000;
+  --logo-light-color: #ffffff;
+  --logo-accent-color: var(--accent-color);
+  color: var(--logo-dark-color);
+}
+
+/* стилизация первого слова в логотипе */
+.logo-link > span {
+  color: var(--logo-accent-color);
+}
+
 /* список навигационных ссылок */
 .nav-list {
   display: flex;
 }
 
 /* ссылки навигации по сайту */
-.nav-list .link,
-.contact-list .link {
-  margin-left: auto;
-  padding: 32px 0;
+.nav-item .link,
+.contact-item .link {
   display: flex;
+  align-items: center;
+  padding: 32px 0;
   font-weight: var(--font-weight-medium);
 }
 
@@ -193,9 +208,7 @@ body {
 }
 
 /* ссылки контактов в шапке */
-.contact-list .link {
-  display: inline-flex;
-  align-items: center;
+.contact-item .link {
   color: var(--text-muted-color);
 }
 
@@ -211,18 +224,6 @@ body {
   fill: currentColor;
 }
 
-/* убрал нижний зазор во всех сприсках с картинками */
-.card-thumb > img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  /* 
-  будет сдвигать картинку в ценрт, если 
-  она окажется меньше ширины карточки 
-  */
-  margin: auto;
-}
-
 /* footer */
 .footer-page {
   padding-top: 60px;
@@ -233,6 +234,11 @@ body {
 .footer-box {
   display: flex;
   color: var(--text-light-color);
+}
+
+/* контпакты */
+.contacts {
+  margin-right: 70px;
 }
 
 /* стилизация логотипа в подвале */
@@ -247,7 +253,6 @@ body {
 /* адресный список ссылок*/
 .address-list {
   font-style: normal;
-  margin-right: 70px;
 }
 
 /* отступы между элементами списка ссылок*/
@@ -285,7 +290,7 @@ body {
 }
 
 /* заголовок списка соц. сетей */
-.footer-social .title {
+.footer-social .text {
   margin-bottom: 20px;
   font-size: 14px;
   line-height: 1.143;
@@ -315,12 +320,10 @@ body {
 
 /* index.html */
 /* герой */
-.hero-box {
-  padding: 200px 0;
+.hero-section {
+  padding-top: 200px;
+  padding-bottom: 200px;
   background-color: var(--background-secondary-color);
-}
-
-.overlay {
   background-image: linear-gradient(
       rgba(47, 48, 58, 0.4),
       rgba(47, 48, 58, 0.4)
@@ -328,58 +331,50 @@ body {
     url("../images/img.jpg");
 }
 
+.hero-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--text-light-color);
+}
+
 /* заголовок секции hero */
 .hero-box .title {
   max-width: 696px;
-  margin: 0 auto 30px;
+  margin-bottom: 30px;
+  display: block;
   font-weight: var(--font-weight-black);
   font-size: 44px;
   line-height: 1.364;
   letter-spacing: 0.06em;
   text-align: center;
   text-transform: uppercase;
-  color: var(--text-light-color);
 }
 
 /* кнопка перехода к заказу в секции hero */
-.hero-btn {
-  margin: 0 auto;
+.hero-box .btn {
   padding: 10px 32px;
-  display: block;
+  flex-wrap: nowrap;
   font-weight: var(--font-weight-bold);
   font-size: 16px;
   line-height: 1.875;
   letter-spacing: 0.06em;
 }
 
-/* секция особенности */
-.features-box {
-  padding: 94px 0;
-}
-
-/* список особенностей */
-.features-list {
-  display: flex;
-  margin-right: calc(-1 * var(--features-card-gap));
-}
-
 /* сетка особенностей */
 .features-list > .item {
-  margin-right: var(--features-card-gap);
-  flex-basis: calc(100% / 4 - var(--features-card-gap));
+  flex-basis: calc((100% - 4 * var(--gap)) / 4);
 }
 
 /* декорация над элементом особенностей */
 .features-icon-box {
+  min-width: 270px;
   padding: 25px 0;
+  display: flex;
+  justify-content: center;
   margin-bottom: var(--gap);
   border-radius: var(--border-radius);
   background-color: var(--backgrount-third-color);
-}
-
-.icon-features {
-  margin: 0 auto;
-  display: block;
 }
 
 /* заголовки в списках особенностей */
@@ -398,21 +393,16 @@ body {
   color: var(--text-muted-color);
 }
 
-/* Секция Чем мы занимаемся */
-.doing-box {
-  padding: 0 0 94px;
-}
-
 /* фото примеров */
 .doing-list {
   display: flex;
   flex-wrap: wrap;
-  margin-right: calc(-1 * var(--doing-card-gap));
 }
 
 .doing-list > .item {
-  flex-basis: calc(100% / 3 - var(--doing-card-gap));
-  margin-right: var(--doing-card-gap);
+  flex-basis: calc((100% - 3 * var(--gap)) / 3);
+  margin-right: var(--gap);
+  margin-bottom: var(--gap);
 }
 
 /* Секция наша команда */
@@ -420,26 +410,18 @@ body {
   background-color: var(--backgrount-third-color);
 }
 
-/* список карточек сотрудников */
-.team-list {
-  display: flex;
-  flex-wrap: wrap;
-  margin-right: calc(-1 * var(--team-card-gap));
-}
-
 /* карточка сотрудника команды */
 .team-card {
-  margin-right: var(--team-card-gap);
-  flex-basis: calc(100% / 4 - var(--team-card-gap));
+  flex-basis: calc((100% - 4 * var(--gap)) / 4);
   background-color: var(--background-prime-color);
   box-shadow: var(--card-team-shawow);
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
 }
 
 /* описание сотрудника команды*/
 .team-card-content {
-  padding: 30px 32px;
+  padding: 30px;
 }
 
 /* фамилия, имя сотрудника */
@@ -476,24 +458,18 @@ body {
   fill: currentColor;
 }
 
-/* секция наши клиенты */
-
-/* список клиентов */
-.clients-list {
-  display: flex;
-  margin-right: calc(-1 * var(--gap));
-}
+/* секция постоянные клиенты */
 
 /* сетка для клиентов */
-.clients-list > .item {
-  flex-basis: calc(100% / 6 - var(--gap));
-  margin-right: var(--gap);
+.client-item {
+  flex-basis: calc((100% - 6 * var(--gap)) / 6);
 }
 
 /* ссылка на клиента */
 .client-link {
-  display: block;
-  padding: 16px 0;
+  padding: 16px 30px;
+  display: flex;
+  justify-content: center;
   color: var(--icon-color);
   border-radius: var(--border-radius);
   border: 1px solid var(--icon-color);
@@ -501,8 +477,6 @@ body {
 
 /* иконка логотипа клиента */
 .icon-client {
-  margin: 0 auto;
-  display: block;
   fill: currentColor;
 }
 
@@ -511,6 +485,7 @@ body {
 .client-link:focus {
   border: 1px solid var(--accent-color);
 }
+/* portfolio.html */
 
 /* список кнопок-фильтров */
 .filters-list {
@@ -534,18 +509,25 @@ body {
 
 /* список проектов*/
 .project-list {
-  margin-bottom: calc(-1 * var(--project-card-gap));
-  margin-right: calc(-1 * var(--project-card-gap));
-  display: flex;
-  flex-wrap: wrap;
   background-color: var(--background-prime-color);
 }
 
-/* отступы между карточками - сетка */
+/* сетка с карточками проектов */
 .project-card {
-  margin-bottom: var(--project-card-gap);
-  margin-right: var(--project-card-gap);
-  flex-basis: calc(100% / 3 - var(--project-card-gap));
+  flex-basis: calc((100% - 3 * var(--gap)) / 3);
+}
+
+/* ссылка на проект */
+.project-link {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card .project-link:hover,
+.project-card .project-link:focus {
+  color: inherit;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
 /* блок с описание проекта */

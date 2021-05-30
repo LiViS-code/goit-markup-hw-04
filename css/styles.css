@@ -467,7 +467,7 @@ body {
 
 /* ссылка на клиента */
 .client-link {
-  padding: 16px 30px;
+  padding: 16px 32px;
   display: flex;
   justify-content: center;
   color: var(--icon-color);
@@ -477,6 +477,7 @@ body {
 
 /* иконка логотипа клиента */
 .icon-client {
+  max-width: 100%;
   fill: currentColor;
 }
 

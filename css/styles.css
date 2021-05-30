@@ -15,6 +15,7 @@
   --text-muted-color: #757575;
 
   --accent-color: #2196f3;
+  --accent-color-btn-order: #188ce8;
 
   --icon-color: #afb1b8;
 
@@ -121,14 +122,11 @@ body {
 .card-list {
   display: flex;
   flex-wrap: wrap;
-  margin-right: calc(-1 * var(--gap));
-  margin-bottom: calc(-1 * var(--gap));
 }
 
 /* интервал между элементами в сетке */
-.card-list > .item {
+.card-list > .item:not(:last-child) {
   margin-right: var(--gap);
-  margin-bottom: var(--gap);
 }
 
 /* убрал нижний зазор во всех сприсках с картинками */
@@ -142,21 +140,22 @@ body {
 .social-link {
   width: 44px;
   height: 44px;
-  padding: 12px;
   display: flex;
-  align-items: baseline;
+  justify-content: center;
+  align-items: center;
   border-radius: 50%;
 }
 
 /* общий контейнер для всех разделов и секций */
 .container {
+  width: var(--max-width-container);
   padding: 0 15px;
+  margin: 0 auto;
 }
 
 /* секции */
 .section {
-  max-width: var(--max-width-site);
-  padding: 94px 200px;
+  padding: 94px 0;
   margin: 0 auto;
 }
 
@@ -332,6 +331,7 @@ body {
 /* index.html */
 /* герой */
 .hero-section {
+  max-width: var(--max-width-site);
   padding-top: 200px;
   padding-bottom: 200px;
   background-color: var(--background-secondary-color);
@@ -363,26 +363,35 @@ body {
 }
 
 /* кнопка перехода к заказу в секции hero */
-.hero-box .btn {
+.order-btn {
   padding: 10px 32px;
   flex-wrap: nowrap;
   font-weight: var(--font-weight-bold);
   font-size: 16px;
   line-height: 1.875;
   letter-spacing: 0.06em;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+}
+
+.order-btn:hover,
+.order-btn:focus {
+  outline: auto;
+  outline-color: var(--accent-color-btn-order);
+  background: var(--accent-color-btn-order);
 }
 
 /* сетка особенностей */
 .features-list > .item {
-  flex-basis: calc((100% - 4 * var(--gap)) / 4);
+  flex-basis: calc((100% - 3 * var(--gap)) / 4);
 }
 
 /* декорация над элементом особенностей */
 .features-icon-box {
-  min-width: 270px;
-  padding: 25px 0;
+  width: 270px;
+  height: 120px;
   display: flex;
   justify-content: center;
+  align-items: center;
   margin-bottom: var(--gap);
   border-radius: var(--border-radius);
   background-color: var(--backgrount-third-color);
@@ -404,16 +413,15 @@ body {
   color: var(--text-muted-color);
 }
 
+/* секция Чем мы занимаемся */
+.doing-box {
+  padding-top: 0;
+}
+
 /* фото примеров */
 .doing-list {
   display: flex;
   flex-wrap: wrap;
-}
-
-.doing-list > .item {
-  flex-basis: calc((100% - 3 * var(--gap)) / 3);
-  margin-right: var(--gap);
-  margin-bottom: var(--gap);
 }
 
 /* Секция наша команда */
@@ -423,7 +431,6 @@ body {
 
 /* карточка сотрудника команды */
 .team-card {
-  flex-basis: calc((100% - 4 * var(--gap)) / 4);
   background-color: var(--background-prime-color);
   box-shadow: var(--card-team-shawow);
   border-bottom-left-radius: var(--border-radius);
@@ -478,9 +485,11 @@ body {
 
 /* ссылка на клиента */
 .client-link {
-  padding: 16px 32px;
+  width: 170px;
+  height: 92px;
   display: flex;
   justify-content: center;
+  align-items: center;
   color: var(--icon-color);
   border-radius: var(--border-radius);
   border: 1px solid var(--icon-color);
@@ -521,11 +530,15 @@ body {
 
 /* список проектов*/
 .project-list {
+  margin-right: calc(-1 * var(--gap));
+  margin-bottom: calc(-1 * var(--gap));
   background-color: var(--background-prime-color);
 }
 
 /* сетка с карточками проектов */
 .project-card {
+  margin-right: var(--gap);
+  margin-bottom: var(--gap);
   flex-basis: calc((100% - 3 * var(--gap)) / 3);
 }
 

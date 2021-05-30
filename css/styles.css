@@ -243,6 +243,7 @@ body {
 
 .footer-box {
   display: flex;
+  align-items: baseline;
   color: var(--text-light-color);
 }
 

@@ -376,7 +376,7 @@ body {
 .order-btn:hover,
 .order-btn:focus {
   outline: auto;
-  outline-color: var(--accent-color-btn-order);
+  outline-color: var(--accent-color);
   background: var(--accent-color-btn-order);
 }
 

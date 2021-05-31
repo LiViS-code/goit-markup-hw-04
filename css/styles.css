@@ -365,7 +365,6 @@ body {
 /* кнопка перехода к заказу в секции hero */
 .order-btn {
   padding: 10px 32px;
-  flex-wrap: nowrap;
   font-weight: var(--font-weight-bold);
   font-size: 16px;
   line-height: 1.875;

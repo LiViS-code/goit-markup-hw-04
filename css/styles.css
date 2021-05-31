@@ -45,6 +45,7 @@ body {
 
 /* ссылки на страничках */
 .link {
+  display: block;
   color: inherit;
   text-decoration: none;
   letter-spacing: 0.02em;
@@ -253,7 +254,6 @@ body {
 
 /* стилизация логотипа в подвале */
 .footer-box .logo-link {
-  display: block;
   margin-bottom: 20px;
   padding-top: 0;
   padding-bottom: 0;

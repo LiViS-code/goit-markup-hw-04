@@ -273,13 +273,16 @@ body {
 
 /* оформление ссылок в футере */
 .footer-link {
-  line-height: 1.714;
   color: var(--text-color-transparent);
 }
 
 /* цвет строки-ссылки с почтовым адресом */
 .address-link {
   color: inherit;
+}
+
+.address-list .link {
+  line-height: 1.714;
 }
 
 /* 

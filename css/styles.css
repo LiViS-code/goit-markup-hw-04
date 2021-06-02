@@ -208,7 +208,6 @@ body {
   display: flex;
   align-items: center;
   padding: 32px 0;
-  line-height: 1.172;
   font-weight: var(--font-weight-medium);
 }
 
